@@ -1,10 +1,5 @@
-import * as React from 'react'
-import styles from './styles.module.css'
+import ReactRRuleGenerator from './components/ReactRRuleGenerator';
+import translations from './translations';
 
-interface Props {
-  text: string
-}
-
-export const ExampleComponent = ({ text }: Props) => {
-  return <div className={styles.test}>Example Component: {text}</div>
-}
+export default ReactRRuleGenerator;
+export { translations };
