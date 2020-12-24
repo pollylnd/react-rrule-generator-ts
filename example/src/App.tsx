@@ -3,6 +3,8 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import TextareaAutosize from 'react-autosize-textarea';
 
 import ReactRRuleGenerator, { translations } from 'react-rrule-ts';
+import './bootstrap.min.css';
+import 'react-rrule-ts/dist/index.css';
 import './index.css';
 
 class App extends Component {
@@ -12,7 +14,7 @@ class App extends Component {
     language: 'en',
   };
 
-  getTranslation = () => (this.state.language === 'de') ? translations.german : undefined;
+  getTranslation = () => (this.state.language === 'de') ? translations.german : translations.english;
 
   handleChangeLanguage = (event: any) => {
     event.persist();
@@ -30,7 +32,7 @@ class App extends Component {
 
   render() {
     const { rrule, isCopied } = this.state;
-
+    console.log(translations, this.state)
     return (
       <div>
         <div className="app-navbar">

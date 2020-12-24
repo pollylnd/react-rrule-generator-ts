@@ -13,7 +13,7 @@ interface Props {
     options: any;
   };
   handleChange: ({ target }: any) => void;
-  translations: {};
+  translations: any;
 }
 
 const End: FC<Props> = ({

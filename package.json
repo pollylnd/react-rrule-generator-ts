@@ -67,5 +67,7 @@
   "files": [
     "dist"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "rrule": "^2.6.6"
+  }
 }
