@@ -35,7 +35,7 @@ const StartOnDate = ({
                 name: 'start.onDate.date'
               }
             };
-
+            console.log(editedEvent)
             handleChange(editedEvent);
           }}
         />
@@ -59,7 +59,8 @@ const StartOnDate = ({
                 value: moment(inputDate).format(DATE_TIME_FORMAT),
                 name: 'start.onDate.date'
               }
-            };
+            }; 
+            console.log(editedEvent)
 
             handleChange(editedEvent);
           }}

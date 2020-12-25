@@ -14,7 +14,7 @@ class App extends Component {
     language: 'en',
   };
 
-  getTranslation = () => (this.state.language === 'de') ? translations.german : translations.english;
+  getTranslation = () => (this.state.language === 'ru') ? translations.russian : translations.english;
 
   handleChangeLanguage = (event: any) => {
     event.persist();
@@ -23,6 +23,7 @@ class App extends Component {
   };
 
   handleChange = (newRRule: any) => {
+    console.log(newRRule)
     this.setState({ rrule: newRRule, isCopied: false });
   };
 
@@ -32,7 +33,6 @@ class App extends Component {
 
   render() {
     const { rrule, isCopied } = this.state;
-    console.log(translations, this.state)
     return (
       <div>
         <div className="app-navbar">
@@ -65,7 +65,7 @@ class App extends Component {
 
           <ReactRRuleGenerator
             onChange={this.handleChange as any}
-            value={this.state.rrule as any}
+            value={this.state.rrule as string}
             config={{
               hideStart: false,
             } as any}
@@ -133,6 +133,7 @@ class App extends Component {
                 <select className="form-control" value={this.state.language} onChange={this.handleChangeLanguage}>
                   <option value="en">English</option>
                   <option value="de">German</option>
+                  <option value="ru">Russian</option>
                 </select>
               </div>
             </div>

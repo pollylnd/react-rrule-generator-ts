@@ -17,7 +17,6 @@ const RepeatYearlyOn = ({
 }: any) => {
   const daysInMonth = moment(on.month, 'MMM').daysInMonth();
   const isActive = mode === 'on';
-  console.log(MONTHS)
 
   return (
     <div

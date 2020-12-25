@@ -49,7 +49,7 @@ const configureState = ({
   const data = {
     start: {
       onDate: {
-        date: moment().format(DATE_TIME_FORMAT),
+        date: moment(new Date()).format(DATE_TIME_FORMAT),
         options: {
           weekStartsOnSunday: config?.weekStartsOnSunday,
           calendarComponent

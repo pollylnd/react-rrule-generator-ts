@@ -13,6 +13,7 @@ const RepeatYearlyOnThe = ({
   translations
 }: any) => {
   const isActive = mode === 'on the';
+  console.log(isActive, mode)
   return (
     <div
       className={`form-group row d-flex align-items-sm-center ${
