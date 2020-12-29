@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import moment from 'moment';
-import DateTime from 'react-datetime';
-import 'moment/min/locales';
 
 import { DATE_TIME_FORMAT } from '../../constants/index';
 import translateLabel from '../../utils/translateLabel';
+import format from 'date-fns/format';
+import DateFnsUtils from '@date-io/date-fns';
+import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
 
 const EndOnDate = ({
   id,
@@ -42,30 +42,33 @@ const EndOnDate = ({
           }}
         />
       ) : (
-        <DateTime
-          {...calendarAttributes}
-          inputProps={{
-            id: `${id}-datetime`,
-            name: 'end.onDate.date',
-            readOnly: true
-          }}
-          locale={translateLabel(translations, 'locale')}
-          timeFormat={false}
-          // viewMode='days'
-          closeOnSelect
-          // closeOnTab
-          // required
-          onChange={(inputDate: any) => {
-            const editedEvent = {
-              target: {
-                value: moment(inputDate).format(DATE_TIME_FORMAT),
-                name: 'end.onDate.date'
-              }
-            };
-
-            handleChange(editedEvent);
-          }}
-        />
+        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+          <KeyboardDatePicker
+            value={date}
+            disableToolbar
+            variant="inline"
+            format="yyyy-MM-dd"
+            id="date-picker-inline"
+            inputProps={{
+              id: `${id}-datetime`,
+              name: 'end.onDate.date',
+              readOnly: true
+            }}
+            inputVariant="outlined"
+            onChange={(inputDate: any) => {
+              const editedEvent = {
+                target: {
+                  value: format(inputDate, 'yyyy-MM-dd'),
+                  name: 'end.onDate.date'
+                }
+              }; 
+              handleChange(editedEvent);
+            }}
+            KeyboardButtonProps={{
+              'aria-label': 'change date',
+            }}
+          />
+        </MuiPickersUtilsProvider>
       )}
     </div>
   );

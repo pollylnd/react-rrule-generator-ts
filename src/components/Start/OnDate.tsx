@@ -1,10 +1,14 @@
 import React from 'react';
-import moment from 'moment';
-import DateTime from 'react-datetime';
 import 'moment/min/locales';
-
+import {
+  KeyboardDatePicker,
+  MuiPickersUtilsProvider
+} from '@material-ui/pickers';
+import DateFnsUtils from '@date-io/date-fns';
 import { DATE_TIME_FORMAT } from '../../constants/index';
 import translateLabel from '../../utils/translateLabel';
+// import ruLocale from "date-fns/locale/ru";
+import { format } from 'date-fns';
 
 const StartOnDate = ({
   id,
@@ -35,36 +39,38 @@ const StartOnDate = ({
                 name: 'start.onDate.date'
               }
             };
-            console.log(editedEvent)
             handleChange(editedEvent);
           }}
         />
       ) : (
-        <DateTime
-          {...calendarAttributes}
-          inputProps={{
-            id: `${id}-datetime`,
-            name: 'start.onDate.date',
-            readOnly: true
-          }}
-          locale={translateLabel(translations, 'locale')}
-          timeFormat={false}
-          // viewMode='days'
-          closeOnSelect
-          // closeOnTab
-          // required
-          onChange={(inputDate: any) => {
-            const editedEvent = {
-              target: {
-                value: moment(inputDate).format(DATE_TIME_FORMAT),
-                name: 'start.onDate.date'
-              }
-            }; 
-            console.log(editedEvent)
-
-            handleChange(editedEvent);
-          }}
-        />
+        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+          <KeyboardDatePicker
+            value={date}
+            disableToolbar
+            variant="inline"
+            format="yyyy-MM-dd"
+            id="date-picker-inline"
+            inputProps={{
+              id: `${id}-datetime`,
+              name: 'start.onDate.date',
+              readOnly: true
+            }}
+            inputVariant="outlined"
+            onChange={(inputDate: any) => {
+              const editedEvent = {
+                target: {
+                  value: format(inputDate, 'yyyy-MM-dd'),
+                  name: 'start.onDate.date'
+                }
+              }; 
+              handleChange(editedEvent);
+            }}
+            KeyboardButtonProps={{
+              'aria-label': 'change date',
+            }}
+            style={{ paddingLeft: '10px' }}
+          />
+        </MuiPickersUtilsProvider>
       )}
     </div>
   );

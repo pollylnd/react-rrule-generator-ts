@@ -6,10 +6,12 @@ import ReactRRuleGenerator, { translations } from 'react-rrule-ts';
 import './bootstrap.min.css';
 import 'react-rrule-ts/dist/index.css';
 import './index.css';
+import format from 'date-fns/format'
+import subDays from 'date-fns/subDays';
 
 class App extends Component {
   state = {
-    rrule: 'DTSTART:20190301T230000Z\nFREQ=YEARLY;BYMONTH=1;BYMONTHDAY=1',
+    rrule: `DTSTART:${format(subDays(new Date(), 1), 'yyyyMMdd') +'T200000Z'}\nFREQ=YEARLY;BYMONTH=1;BYMONTHDAY=1`,
     isCopied: false,
     language: 'en',
   };
@@ -23,7 +25,6 @@ class App extends Component {
   };
 
   handleChange = (newRRule: any) => {
-    console.log(newRRule)
     this.setState({ rrule: newRRule, isCopied: false });
   };
 

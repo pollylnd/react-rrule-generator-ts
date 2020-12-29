@@ -52,16 +52,16 @@ export default {
     label: 'Повторять',
     yearly: {
       label: 'Ежегодно',
-      on: 'on',
-      on_the: 'on the',
-      of: 'of'
+      on: '',
+      on_the: 'каждый(ую)',
+      of: ''
     },
     monthly: {
       label: 'Ежемесячно',
       every: 'каждый(е)',
       months: 'месяц(ы)',
       on_day: 'on day',
-      on_the: 'on the'
+      on_the: 'каждый(ую)'
     },
     weekly: {
       label: 'Еженедельно',
@@ -80,11 +80,11 @@ export default {
     }
   },
   end: {
-    label: 'Конец',
+    label: 'Окончание',
     tooltip: 'Выбор даты и времени для окончания по дате',
     never: 'Никогда',
-    after: 'After',
-    on_date: 'On date',
-    executions: 'выполнение.'
+    after: 'После',
+    on_date: 'Выбор даты',
+    executions: 'выполнения(ий).'
   }
 };

@@ -1,9 +1,9 @@
 import { ReactElement } from 'react';
-import moment from 'moment';
 import _ from 'lodash';
 
 import computeRRuleToString from './computeRRule/toString/computeRRule';
-import { DATE_TIME_FORMAT } from '../constants/index';
+// import { DATE_TIME_FORMAT } from '../constants/index';
+import { format } from 'date-fns';
 
 export type Config = {
   frequency: 'Yearly' | 'Monthly' | 'Weekly' | 'Daily' | 'Hourly';
@@ -49,7 +49,7 @@ const configureState = ({
   const data = {
     start: {
       onDate: {
-        date: moment(new Date()).format(DATE_TIME_FORMAT),
+        date: format(new Date(), 'yyyy-MM-dd'),
         options: {
           weekStartsOnSunday: config?.weekStartsOnSunday,
           calendarComponent
@@ -116,7 +116,7 @@ const configureState = ({
       mode: configureEnd(),
       after: 1,
       onDate: {
-        date: moment().format(DATE_TIME_FORMAT),
+        date: format(new Date(), 'yyyy-MM-dd'),
         options: {
           weekStartsOnSunday: config?.weekStartsOnSunday,
           calendarComponent

@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import moment from 'moment';
 import _ from 'lodash';
 
 import numericalFieldHandler from '../../../utils/numericalFieldHandler';
 import { MONTHS } from '../../../constants/index';
 import translateLabel from '../../../utils/translateLabel';
+import { getDaysInMonth, parse } from 'date-fns';
 
 const RepeatYearlyOn = ({
   id,
@@ -15,7 +15,7 @@ const RepeatYearlyOn = ({
   handleChange,
   translations
 }: any) => {
-  const daysInMonth = moment(on.month, 'MMM').daysInMonth();
+  const daysInMonth = getDaysInMonth(parse(on.month, 'MMM', new Date()));
   const isActive = mode === 'on';
 
   return (
