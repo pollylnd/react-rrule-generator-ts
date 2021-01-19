@@ -15,12 +15,18 @@ npm install --save react-rrule-ts
 ```tsx
 import React, { Component } from 'react'
 
-import ReactRRuleTS from 'react-rrule-ts'
+import ReactRRuleTS, { translations } from 'react-rrule-ts'
 import 'react-rrule-ts/dist/index.css'
 
 class Example extends Component {
   render() {
-    return <ReactRRuleTS />
+    return <ReactRRuleTS 
+    onChange={(rrule) => console.log(rule)}
+    config={{
+      hideStart: false,
+    }}
+    translations={translations.english}
+    />
   }
 }
 ```
