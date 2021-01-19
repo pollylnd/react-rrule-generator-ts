@@ -1,4 +1,4 @@
-import React, { FC, ReactElement } from 'react';
+import React from 'react';
 import RepeatYearly from './Yearly/index';
 import RepeatMonthly from './Monthly/index';
 import RepeatWeekly from './Weekly/index';
@@ -42,12 +42,12 @@ interface Props {
   translations: {};
 }
 
-const Repeat: FC<Props> = ({
+const Repeat: React.FC<Props> = ({
   id,
   repeat: { frequency, yearly, monthly, weekly, daily, hourly, options },
   handleChange,
   translations
-}): ReactElement => {
+}): React.ReactElement => {
   const isOptionAvailable = (option: string) =>
     !options.frequency || options.frequency.indexOf(option) !== -1;
   const isOptionSelected = (option: string) => frequency === option;

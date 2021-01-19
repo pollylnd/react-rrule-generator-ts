@@ -1,14 +1,22 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import numericalFieldHandler from '../../../utils/numericalFieldHandler';
 import translateLabel from '../../../utils/translateLabel';
+
+interface Props {
+  id: string;
+  daily: {
+    interval: any;
+  };
+  handleChange: ({ target }: any) => void;
+  translations: any;
+}
 
 const RepeatDaily = ({
   id,
   daily: { interval },
   handleChange,
   translations
-}: any) => (
+}: Props) => (
   <div className='form-group row d-flex align-items-sm-center'>
     <div className='col-sm-1 offset-sm-2'>
       {translateLabel(translations, 'repeat.daily.every')}
@@ -28,14 +36,5 @@ const RepeatDaily = ({
     </div>
   </div>
 );
-RepeatDaily.propTypes = {
-  id: PropTypes.string.isRequired,
-  daily: PropTypes.shape({
-    interval: PropTypes.number.isRequired
-  }).isRequired,
-  handleChange: PropTypes.func.isRequired,
-  translations: PropTypes.oneOfType([PropTypes.object, PropTypes.func])
-    .isRequired
-};
 
 export default RepeatDaily;

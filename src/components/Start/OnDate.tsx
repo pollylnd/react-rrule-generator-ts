@@ -1,5 +1,4 @@
 import React from 'react';
-import 'moment/min/locales';
 import {
   KeyboardDatePicker,
   MuiPickersUtilsProvider
@@ -7,7 +6,6 @@ import {
 import DateFnsUtils from '@date-io/date-fns';
 import { DATE_TIME_FORMAT } from '../../constants/index';
 import translateLabel from '../../utils/translateLabel';
-// import ruLocale from "date-fns/locale/ru";
 import { format } from 'date-fns';
 
 const StartOnDate = ({
@@ -47,26 +45,26 @@ const StartOnDate = ({
           <KeyboardDatePicker
             value={date}
             disableToolbar
-            variant="inline"
-            format="yyyy-MM-dd"
-            id="date-picker-inline"
+            variant='inline'
+            format='yyyy-MM-dd'
+            id='date-picker-inline'
             inputProps={{
               id: `${id}-datetime`,
               name: 'start.onDate.date',
               readOnly: true
             }}
-            inputVariant="outlined"
+            inputVariant='outlined'
             onChange={(inputDate: any) => {
               const editedEvent = {
                 target: {
                   value: format(inputDate, 'yyyy-MM-dd'),
                   name: 'start.onDate.date'
                 }
-              }; 
+              };
               handleChange(editedEvent);
             }}
             KeyboardButtonProps={{
-              'aria-label': 'change date',
+              'aria-label': 'change date'
             }}
             style={{ paddingLeft: '10px' }}
           />

@@ -1,16 +1,26 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import _ from 'lodash';
+import toPairs from 'lodash/toPairs';
 import numericalFieldHandler from '../../../utils/numericalFieldHandler';
 import translateLabel from '../../../utils/translateLabel';
+
+interface Props {
+  id: string;
+  weekly: {
+    interval: any;
+    days: any;
+    options: any;
+  };
+  handleChange: any;
+  translations: any;
+}
 
 const RepeatWeekly = ({
   id,
   weekly: { interval, days, options },
   handleChange,
   translations
-}: any) => {
-  let daysArray = _.toPairs(days);
+}: Props) => {
+  let daysArray = toPairs(days);
   if (options.weekStartsOnSunday) {
     daysArray = daysArray.slice(-1).concat(daysArray.slice(0, -1));
   }
@@ -73,28 +83,6 @@ const RepeatWeekly = ({
       </div>
     </div>
   );
-};
-
-RepeatWeekly.propTypes = {
-  id: PropTypes.string.isRequired,
-  weekly: PropTypes.shape({
-    interval: PropTypes.number.isRequired,
-    days: PropTypes.shape({
-      mon: PropTypes.bool.isRequired,
-      tue: PropTypes.bool.isRequired,
-      wed: PropTypes.bool.isRequired,
-      thu: PropTypes.bool.isRequired,
-      fri: PropTypes.bool.isRequired,
-      sat: PropTypes.bool.isRequired,
-      sun: PropTypes.bool.isRequired
-    }).isRequired,
-    options: PropTypes.shape({
-      weekStartsOnSunday: PropTypes.bool
-    }).isRequired
-  }).isRequired,
-  handleChange: PropTypes.func.isRequired,
-  translations: PropTypes.oneOfType([PropTypes.object, PropTypes.func])
-    .isRequired
 };
 
 export default RepeatWeekly;

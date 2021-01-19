@@ -15,12 +15,12 @@ npm install --save react-rrule-ts
 ```tsx
 import React, { Component } from 'react'
 
-import MyComponent from 'react-rrule-ts'
+import ReactRRuleTS from 'react-rrule-ts'
 import 'react-rrule-ts/dist/index.css'
 
 class Example extends Component {
   render() {
-    return <MyComponent />
+    return <ReactRRuleTS />
   }
 }
 ```

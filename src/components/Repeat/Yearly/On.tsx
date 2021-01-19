@@ -1,11 +1,19 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import _ from 'lodash';
+import range from 'lodash/range';
 
 import numericalFieldHandler from '../../../utils/numericalFieldHandler';
 import { MONTHS } from '../../../constants/index';
 import translateLabel from '../../../utils/translateLabel';
 import { getDaysInMonth, parse } from 'date-fns';
+
+interface Props {
+  id: string;
+  mode: any;
+  on: any;
+  hasMoreModes: boolean;
+  handleChange: any;
+  translations: any;
+}
 
 const RepeatYearlyOn = ({
   id,
@@ -14,7 +22,7 @@ const RepeatYearlyOn = ({
   hasMoreModes,
   handleChange,
   translations
-}: any) => {
+}: Props) => {
   const daysInMonth = getDaysInMonth(parse(on.month, 'MMM', new Date()));
   const isActive = mode === 'on';
 
@@ -70,7 +78,7 @@ const RepeatYearlyOn = ({
           disabled={!isActive}
           onChange={numericalFieldHandler(handleChange)}
         >
-          {_.range(0, daysInMonth).map((i) => (
+          {range(0, daysInMonth).map((i) => (
             <option key={i} value={i + 1}>
               {i + 1}
             </option>
@@ -79,18 +87,6 @@ const RepeatYearlyOn = ({
       </div>
     </div>
   );
-};
-RepeatYearlyOn.propTypes = {
-  id: PropTypes.string.isRequired,
-  mode: PropTypes.oneOf(['on', 'on the']).isRequired,
-  on: PropTypes.shape({
-    month: PropTypes.oneOf(MONTHS).isRequired,
-    day: PropTypes.number.isRequired
-  }).isRequired,
-  hasMoreModes: PropTypes.bool.isRequired,
-  handleChange: PropTypes.func.isRequired,
-  translations: PropTypes.oneOfType([PropTypes.object, PropTypes.func])
-    .isRequired
 };
 
 export default RepeatYearlyOn;

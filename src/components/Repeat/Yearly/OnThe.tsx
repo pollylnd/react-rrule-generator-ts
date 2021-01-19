@@ -1,8 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { MONTHS, DAYS } from '../../../constants/index';
 import translateLabel from '../../../utils/translateLabel';
+
+interface Props {
+  id: string;
+  mode: any;
+  onThe: any;
+  hasMoreModes: boolean;
+  handleChange: any;
+  translations: any;
+}
 
 const RepeatYearlyOnThe = ({
   id,
@@ -11,7 +19,7 @@ const RepeatYearlyOnThe = ({
   hasMoreModes,
   handleChange,
   translations
-}: any) => {
+}: Props) => {
   const isActive = mode === 'on the';
   return (
     <div
@@ -105,20 +113,6 @@ const RepeatYearlyOnThe = ({
       </div>
     </div>
   );
-};
-RepeatYearlyOnThe.propTypes = {
-  id: PropTypes.string.isRequired,
-  mode: PropTypes.oneOf(['on', 'on the']).isRequired,
-  onThe: PropTypes.shape({
-    which: PropTypes.oneOf(['First', 'Second', 'Third', 'Fourth', 'Last'])
-      .isRequired,
-    month: PropTypes.oneOf(MONTHS).isRequired,
-    day: PropTypes.oneOf(DAYS).isRequired
-  }).isRequired,
-  hasMoreModes: PropTypes.bool.isRequired,
-  handleChange: PropTypes.func.isRequired,
-  translations: PropTypes.oneOfType([PropTypes.object, PropTypes.func])
-    .isRequired
 };
 
 export default RepeatYearlyOnThe;

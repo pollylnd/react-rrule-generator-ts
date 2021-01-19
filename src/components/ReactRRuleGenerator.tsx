@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
-import _ from 'lodash';
+import cloneDeep from 'lodash/cloneDeep';
+import set from 'lodash/set';
 
 import Start from './Start/index';
 import Repeat from './Repeat/index';
@@ -63,8 +64,8 @@ class ReactRRuleGenerator extends PureComponent<Props> {
   }
 
   handleChange = ({ target }: any) => {
-    const newData = _.cloneDeep(this.state.data);
-    _.set(newData, target.name, target.value);
+    const newData = cloneDeep(this.state.data);
+    set(newData, target.name, target.value);
     const rrule = computeRRuleToString(newData);
     this.setState({ data: newData });
     this.props.onChange(rrule);

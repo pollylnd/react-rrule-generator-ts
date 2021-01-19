@@ -1,4 +1,4 @@
-import React, { FC, ReactElement } from 'react';
+import React from 'react';
 import EndAfter from './After';
 import EndOnDate from './OnDate';
 
@@ -16,12 +16,12 @@ interface Props {
   translations: any;
 }
 
-const End: FC<Props> = ({
+const End: React.FC<Props> = ({
   id,
   end: { mode, after, onDate, options },
   handleChange,
   translations
-}): ReactElement => {
+}): React.ReactElement => {
   const isOptionAvailable = (option: string) =>
     !options.modes || options.modes.indexOf(option) !== -1;
   const isOptionSelected = (option: string) => mode === option;

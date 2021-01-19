@@ -1,16 +1,28 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import RepeatMonthlyOn from './On';
 import RepeatMonthlyOnThe from './OnThe';
 import numericalFieldHandler from '../../../utils/numericalFieldHandler';
 import translateLabel from '../../../utils/translateLabel';
+
+interface Props {
+  id: string;
+  monthly: {
+    mode: any;
+    interval: any;
+    on: any;
+    onThe: any;
+    options: any;
+  };
+  handleChange: any;
+  translations: any;
+}
 
 const RepeatMonthly = ({
   id,
   monthly: { mode, interval, on, onThe, options },
   handleChange,
   translations
-}: any) => {
+}: Props) => {
   const isTheOnlyOneMode = (option: any) => options.modes === option;
   const isOptionAvailable = (option: any) =>
     !options.modes || isTheOnlyOneMode(option);
@@ -58,22 +70,6 @@ const RepeatMonthly = ({
       )}
     </div>
   );
-};
-
-RepeatMonthly.propTypes = {
-  id: PropTypes.string.isRequired,
-  monthly: PropTypes.shape({
-    mode: PropTypes.oneOf(['on', 'on the']).isRequired,
-    interval: PropTypes.number.isRequired,
-    on: PropTypes.object.isRequired,
-    onThe: PropTypes.object.isRequired,
-    options: PropTypes.shape({
-      modes: PropTypes.oneOf(['on', 'on the'])
-    }).isRequired
-  }).isRequired,
-  handleChange: PropTypes.func.isRequired,
-  translations: PropTypes.oneOfType([PropTypes.object, PropTypes.func])
-    .isRequired
 };
 
 export default RepeatMonthly;

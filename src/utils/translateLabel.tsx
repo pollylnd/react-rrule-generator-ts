@@ -1,7 +1,10 @@
-import _ from 'lodash';
+import forEach from 'lodash/forEach';
+import isFunction from 'lodash/isFunction';
+import isPlainObject from 'lodash/isPlainObject';
+import get from 'lodash/get';
 
 const replacePlaceholder = (text: any, replacements = {}) => {
-  _.forEach(replacements, (value, key) => {
+  forEach(replacements, (value, key) => {
     text = text.replace(`%{${key}}`, value);
   });
 
@@ -9,11 +12,11 @@ const replacePlaceholder = (text: any, replacements = {}) => {
 };
 
 const translateLabel = (translations: any, key: any, replacements = {}) => {
-  if (_.isFunction(translations)) {
+  if (isFunction(translations)) {
     return translations(key, replacements);
-  } else if (_.isPlainObject(translations)) {
+  } else if (isPlainObject(translations)) {
     return replacePlaceholder(
-      _.get(translations, key, `[translation missing '${key}']`),
+      get(translations, key, `[translation missing '${key}']`),
       replacements
     );
   }

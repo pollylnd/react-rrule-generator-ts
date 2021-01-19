@@ -1,7 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import numericalFieldHandler from '../../../utils/numericalFieldHandler';
 import translateLabel from '../../../utils/translateLabel';
+
+interface Props {
+  id: string;
+  mode: any;
+  on: any;
+  hasMoreModes: boolean;
+  handleChange: any;
+  translations: any;
+}
 
 const RepeatMonthlyOn = ({
   id,
@@ -10,7 +18,7 @@ const RepeatMonthlyOn = ({
   hasMoreModes,
   handleChange,
   translations
-}: any) => {
+}: Props) => {
   const isActive = mode === 'on';
 
   return (
@@ -55,17 +63,6 @@ const RepeatMonthlyOn = ({
       </div>
     </div>
   );
-};
-RepeatMonthlyOn.propTypes = {
-  id: PropTypes.string.isRequired,
-  mode: PropTypes.oneOf(['on', 'on the']).isRequired,
-  on: PropTypes.shape({
-    day: PropTypes.number.isRequired
-  }).isRequired,
-  hasMoreModes: PropTypes.bool.isRequired,
-  handleChange: PropTypes.func.isRequired,
-  translations: PropTypes.oneOfType([PropTypes.object, PropTypes.func])
-    .isRequired
 };
 
 export default RepeatMonthlyOn;

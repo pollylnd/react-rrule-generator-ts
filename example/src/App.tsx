@@ -16,7 +16,14 @@ class App extends Component {
     language: 'en',
   };
 
-  getTranslation = () => (this.state.language === 'ru') ? translations.russian : translations.english;
+  getTranslation = () => {
+    switch (this.state.language) {
+      case 'ru': return translations.russian;
+      case 'en': return translations.english;
+      case 'de': return translations.german;
+      default: return translations.english;
+    };
+  };
 
   handleChangeLanguage = (event: any) => {
     event.persist();

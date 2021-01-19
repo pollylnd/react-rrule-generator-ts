@@ -1,9 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import numericalFieldHandler from '../../utils/numericalFieldHandler';
 import translateLabel from '../../utils/translateLabel';
 
-const EndAfter = ({ id, after, handleChange, translations }: any) => (
+interface Props {
+  id: string;
+  after: number;
+  handleChange: any;
+  translations: any;
+}
+
+const EndAfter = ({ id, after, handleChange, translations }: Props) => (
   <div className='col-sm-4'>
     <div className='form-group m-0 row d-flex align-items-center'>
       <div className='col-3 col-sm-6 pl-0'>
@@ -22,13 +28,5 @@ const EndAfter = ({ id, after, handleChange, translations }: any) => (
     </div>
   </div>
 );
-
-EndAfter.propTypes = {
-  id: PropTypes.string.isRequired,
-  after: PropTypes.number.isRequired,
-  handleChange: PropTypes.func.isRequired,
-  translations: PropTypes.oneOfType([PropTypes.object, PropTypes.func])
-    .isRequired
-};
 
 export default EndAfter;

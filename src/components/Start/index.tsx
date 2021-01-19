@@ -1,4 +1,4 @@
-import React, { FC, ReactElement } from 'react';
+import React from 'react';
 import StartOnDate from './OnDate';
 
 import translateLabel from '../../utils/translateLabel';
@@ -10,12 +10,12 @@ interface Props {
   translations: {};
 }
 
-const Start: FC<Props> = ({
+const Start: React.FC<Props> = ({
   id,
   start: { onDate },
   handleChange,
   translations
-}): ReactElement => (
+}): React.ReactElement => (
   <div className='px-3'>
     <div className='form-group row'>
       <div className='col-sm-2 text-sm-right'>

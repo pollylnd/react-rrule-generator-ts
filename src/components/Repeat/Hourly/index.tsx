@@ -1,14 +1,22 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import numericalFieldHandler from '../../../utils/numericalFieldHandler';
 import translateLabel from '../../../utils/translateLabel';
+
+interface Props {
+  id: string;
+  hourly: {
+    interval: any;
+  };
+  handleChange: ({ target }: any) => void;
+  translations: any;
+}
 
 const RepeatHourly = ({
   id,
   hourly: { interval },
   handleChange,
   translations
-}: any) => (
+}: Props) => (
   <div className='form-group row d-flex align-items-sm-center'>
     <div className='col-sm-1 offset-sm-2'>
       {translateLabel(translations, 'repeat.hourly.every')}
@@ -28,14 +36,5 @@ const RepeatHourly = ({
     </div>
   </div>
 );
-RepeatHourly.propTypes = {
-  id: PropTypes.string.isRequired,
-  hourly: PropTypes.shape({
-    interval: PropTypes.number.isRequired
-  }).isRequired,
-  handleChange: PropTypes.func.isRequired,
-  translations: PropTypes.oneOfType([PropTypes.object, PropTypes.func])
-    .isRequired
-};
 
 export default RepeatHourly;

@@ -1,5 +1,6 @@
 import { ReactElement } from 'react';
-import _ from 'lodash';
+import isEmpty from 'lodash/isEmpty';
+import uniqueId from 'lodash/uniqueId';
 
 import computeRRuleToString from './computeRRule/toString/computeRRule';
 // import { DATE_TIME_FORMAT } from '../constants/index';
@@ -44,7 +45,7 @@ const configureState = ({
   const configureEnd = () => (config?.end ? config.end[0] : 'Never');
   const configureHideStart = () =>
     typeof config?.hideStart === 'undefined' ? true : config?.hideStart;
-  const uniqueRruleId = _.isEmpty(id) ? _.uniqueId('rrule-') : id;
+  const uniqueRruleId = isEmpty(id) ? uniqueId('rrule-') : id;
 
   const data = {
     start: {
