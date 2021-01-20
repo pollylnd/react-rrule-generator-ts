@@ -26,7 +26,7 @@ class Example extends Component {
   render() {
     return 
     <RRuleGeneratorTS 
-      onChange={(rrule) => console.log(rule)}
+      onChange={(rrule) => console.log(rrule)}
       config={{
         hideStart: false,
       }}

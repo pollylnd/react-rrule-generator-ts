@@ -23,7 +23,10 @@ export default {
     thu: 'Thu',
     fri: 'Fri',
     sat: 'Sat',
-    sun: 'Sun'
+    sun: 'Sun',
+    day: 'Day',
+    weekday: 'Weekday',
+    'weekend day': 'Weekend day'
   },
   days: {
     monday: 'Monday',
@@ -42,6 +45,8 @@ export default {
     second: 'Second',
     third: 'Third',
     fourth: 'Fourth',
+    fifth: 'Fifth',
+    sixth: 'Sixth',
     last: 'Last'
   },
   start: {

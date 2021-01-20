@@ -26,3 +26,16 @@ export const DAYS = [
   'Weekday',
   'Weekend day'
 ];
+
+export const DAYS_SHORT = [
+  'Mon',
+  'Tue',
+  'Wed',
+  'Thu',
+  'Fri',
+  'Sat',
+  'Sun',
+  'Day',
+  'Weekday',
+  'Weekend day'
+];

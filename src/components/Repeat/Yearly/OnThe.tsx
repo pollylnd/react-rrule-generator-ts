@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { MONTHS, DAYS } from '../../../constants/index';
+import { MONTHS, DAYS_SHORT } from '../../../constants/index';
 import translateLabel from '../../../utils/translateLabel';
 
 interface Props {
@@ -40,11 +40,11 @@ const RepeatYearlyOnThe = ({
           />
         )}
       </div>
-      <div className='col-sm-1'>
+      <div className='col-sm-2'>
         {translateLabel(translations, 'repeat.yearly.on_the')}
       </div>
 
-      <div className='col-sm-2'>
+      <div className='col-sm-3'>
         <select
           id={`${id}-which`}
           name='repeat.yearly.onThe.which'
@@ -66,13 +66,19 @@ const RepeatYearlyOnThe = ({
           <option value='Fourth'>
             {translateLabel(translations, 'numerals.fourth')}
           </option>
+          <option value='Fifth'>
+            {translateLabel(translations, 'numerals.fifth')}
+          </option>
+          <option value='Sixth'>
+            {translateLabel(translations, 'numerals.sixth')}
+          </option>
           <option value='Last'>
             {translateLabel(translations, 'numerals.last')}
           </option>
         </select>
       </div>
 
-      <div className='col-sm-3'>
+      <div className='col-sm-2'>
         <select
           id={`${id}-day`}
           name='repeat.yearly.onThe.day'
@@ -82,9 +88,9 @@ const RepeatYearlyOnThe = ({
           disabled={!isActive}
           onChange={handleChange}
         >
-          {DAYS.map((day) => (
+          {DAYS_SHORT.map((day) => (
             <option key={day} value={day}>
-              {translateLabel(translations, `days.${day.toLowerCase()}`)}
+              {translateLabel(translations, `days_short.${day.toLowerCase()}`)}
             </option>
           ))}
         </select>
@@ -94,7 +100,7 @@ const RepeatYearlyOnThe = ({
         {translateLabel(translations, 'repeat.yearly.of')}
       </div>
 
-      <div className='col-sm-2'>
+      <div className='col-sm-3'>
         <select
           id={`${id}-month`}
           name='repeat.yearly.onThe.month'

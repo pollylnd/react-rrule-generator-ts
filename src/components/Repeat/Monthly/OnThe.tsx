@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { DAYS } from '../../../constants/index';
+import { DAYS_SHORT } from '../../../constants/index';
 import translateLabel from '../../../utils/translateLabel';
 
 interface Props {
@@ -41,11 +41,11 @@ const RepeatMonthlyOnThe = ({
           />
         )}
       </div>
-      <div className='col-sm-1'>
+      <div className='col-sm-2'>
         {translateLabel(translations, 'repeat.monthly.on_the')}
       </div>
 
-      <div className='col-sm-2'>
+      <div className='col-sm-3'>
         <select
           id={`${id}-which`}
           name='repeat.monthly.onThe.which'
@@ -83,9 +83,9 @@ const RepeatMonthlyOnThe = ({
           disabled={!isActive}
           onChange={handleChange}
         >
-          {DAYS.map((day) => (
+          {DAYS_SHORT.map((day) => (
             <option key={day} value={day}>
-              {translateLabel(translations, `days.${day.toLowerCase()}`)}
+              {translateLabel(translations, `days_short.${day.toLowerCase()}`)}
             </option>
           ))}
         </select>

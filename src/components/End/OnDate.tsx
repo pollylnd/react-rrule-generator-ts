@@ -4,10 +4,7 @@ import { DATE_TIME_FORMAT } from '../../constants/index';
 import translateLabel from '../../utils/translateLabel';
 import format from 'date-fns/format';
 import DateFnsUtils from '@date-io/date-fns';
-import {
-  MuiPickersUtilsProvider,
-  KeyboardDatePicker
-} from '@material-ui/pickers';
+import { MuiPickersUtilsProvider, DatePicker } from '@material-ui/pickers';
 
 interface Props {
   id: string;
@@ -34,7 +31,7 @@ const EndOnDate = ({
   };
 
   return (
-    <div className='col-6 col-sm-3'>
+    <div className='col-5'>
       {CustomCalendar ? (
         <CustomCalendar
           key={`${id}-calendar`}
@@ -52,7 +49,7 @@ const EndOnDate = ({
         />
       ) : (
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
-          <KeyboardDatePicker
+          <DatePicker
             value={date}
             disableToolbar
             variant='inline'
@@ -61,7 +58,8 @@ const EndOnDate = ({
             inputProps={{
               id: `${id}-datetime`,
               name: 'end.onDate.date',
-              readOnly: true
+              readOnly: true,
+              'aria-label': 'change date'
             }}
             inputVariant='outlined'
             onChange={(inputDate: any) => {
@@ -73,9 +71,7 @@ const EndOnDate = ({
               };
               handleChange(editedEvent);
             }}
-            KeyboardButtonProps={{
-              'aria-label': 'change date'
-            }}
+            className='date-picker-end'
           />
         </MuiPickersUtilsProvider>
       )}

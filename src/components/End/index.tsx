@@ -34,7 +34,7 @@ const End: React.FC<Props> = ({
             <strong>{translateLabel(translations, 'end.label')}</strong>
           </label>
         </div>
-        <div className='col-sm-3'>
+        <div className='col-sm-4'>
           <select
             name='end.mode'
             id={id}

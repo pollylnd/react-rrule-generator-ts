@@ -40,11 +40,8 @@ const RepeatMonthlyOn = ({
           />
         )}
       </div>
-      <div className='col-sm-1'>
-        {translateLabel(translations, 'repeat.monthly.on_day')}
-      </div>
 
-      <div className='col-sm-2'>
+      <div className='col-sm-3'>
         <select
           id={`${id}-day`}
           name='repeat.monthly.on.day'
@@ -60,6 +57,9 @@ const RepeatMonthlyOn = ({
             </option>
           ))}
         </select>
+      </div>
+      <div className='col-sm-2'>
+        {translateLabel(translations, 'repeat.monthly.on_day')}
       </div>
     </div>
   );

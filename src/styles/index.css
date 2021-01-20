@@ -297,3 +297,12 @@ td.rdtYear:hover {
 .rrule-copied:focus {
   color: #888;
 }
+
+.date-picker-start, .date-picker-end {
+  padding-left: 10px;
+}
+
+.date-picker-start .MuiOutlinedInput-input,
+.date-picker-end .MuiOutlinedInput-input {
+  padding: 10px 14px;
+}

@@ -46,26 +46,8 @@ const RepeatYearlyOn = ({
         )}
       </div>
 
-      <div className='col-sm-1'>
-        {translateLabel(translations, 'repeat.yearly.on')}
-      </div>
-
       <div className='col-sm-2'>
-        <select
-          id={`${id}-month`}
-          name='repeat.yearly.on.month'
-          aria-label='Repeat yearly on month'
-          className='form-control'
-          value={on.month}
-          disabled={!isActive}
-          onChange={handleChange}
-        >
-          {MONTHS.map((month) => (
-            <option key={month} value={month}>
-              {translateLabel(translations, `months.${month.toLowerCase()}`)}
-            </option>
-          ))}
-        </select>
+        {translateLabel(translations, 'repeat.yearly.on')}
       </div>
 
       <div className='col-sm-2'>
@@ -81,6 +63,24 @@ const RepeatYearlyOn = ({
           {range(0, daysInMonth).map((i) => (
             <option key={i} value={i + 1}>
               {i + 1}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <div className='col-sm-3'>
+        <select
+          id={`${id}-month`}
+          name='repeat.yearly.on.month'
+          aria-label='Repeat yearly on month'
+          className='form-control'
+          value={on.month}
+          disabled={!isActive}
+          onChange={handleChange}
+        >
+          {MONTHS.map((month) => (
+            <option key={month} value={month}>
+              {translateLabel(translations, `months.${month.toLowerCase()}`)}
             </option>
           ))}
         </select>

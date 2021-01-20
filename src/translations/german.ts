@@ -23,7 +23,10 @@ export default {
     thu: 'Do',
     fri: 'Fr',
     sat: 'Sa',
-    sun: 'So'
+    sun: 'So',
+    day: 'Tag',
+    weekday: 'Wochentag',
+    'weekend day': 'Wochenende'
   },
   days: {
     monday: 'Montag',
@@ -38,10 +41,12 @@ export default {
     'weekend day': 'Wochenende'
   },
   numerals: {
-    first: 'Ersten',
-    second: 'Zweiten',
-    third: 'Dritten',
-    fourth: 'Vierten',
+    first: 'Erste',
+    second: 'Zweite',
+    third: 'Dritte',
+    fourth: 'Vierte',
+    fifth: 'Fünfte',
+    sixth: 'Sechste',
     last: 'Letzten'
   },
   start: {

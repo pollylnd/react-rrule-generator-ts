@@ -23,7 +23,10 @@ export default {
     thu: 'Чт',
     fri: 'Пт',
     sat: 'Сб',
-    sun: 'Вс'
+    sun: 'Вс',
+    day: 'День',
+    weekday: 'День недели',
+    'weekend day': 'Выходной день'
   },
   days: {
     monday: 'Понедельник',
@@ -35,13 +38,15 @@ export default {
     sunday: 'Воскресенье',
     day: 'День',
     weekday: 'День недели',
-    'выходной день': 'Выходной день'
+    'weekend day': 'Выходной день'
   },
   numerals: {
     first: 'Первый',
     second: 'Второй',
     third: 'Третий',
     fourth: 'Четвертый',
+    fifth: 'Пятый',
+    sixth: 'Шестой',
     last: 'Последний'
   },
   start: {
@@ -52,16 +57,16 @@ export default {
     label: 'Повторять',
     yearly: {
       label: 'Ежегодно',
-      on: '',
-      on_the: 'каждый(ую)',
+      on: 'каждое',
+      on_the: 'каждый',
       of: ''
     },
     monthly: {
       label: 'Ежемесячно',
-      every: 'каждый(е)',
-      months: 'месяц(ы)',
-      on_day: 'on day',
-      on_the: 'каждый(ую)'
+      every: 'каждый',
+      months: 'месяц',
+      on_day: 'день',
+      on_the: 'каждый'
     },
     weekly: {
       label: 'Еженедельно',
