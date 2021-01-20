@@ -1,4 +1,4 @@
-# react-rrule-ts
+# react-rrule-generator-ts
 
 > This is ReactJS project based on Create React Library and using Bootstrap styling. It's built with the help of a great rrule.js library.
 It also uses: 
@@ -6,7 +6,7 @@ It also uses:
 -date-fns 
 -@material-ui/pickers.
 
-[![NPM](https://img.shields.io/npm/v/react-rrule-ts.svg)](https://www.npmjs.com/package/react-rrule-ts) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/react-rrule-generator-ts.svg)](https://www.npmjs.com/package/react-rrule-generator-ts) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
