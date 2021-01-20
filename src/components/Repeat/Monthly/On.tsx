@@ -21,6 +21,20 @@ const RepeatMonthlyOn = ({
 }: Props) => {
   const isActive = mode === 'on';
 
+  const renderOptions = () => {
+    const result = [];
+
+    for (let i = 0; i < 31; i++) {
+      result.push(
+        <option key={i} value={i + 1}>
+          {i + 1}
+        </option>
+      );
+    }
+
+    return result;
+  }
+
   return (
     <div
       className={`form-group row d-flex align-items-sm-center ${
@@ -51,11 +65,12 @@ const RepeatMonthlyOn = ({
           disabled={!isActive}
           onChange={numericalFieldHandler(handleChange)}
         >
-          {[...new Array(31)].map((_, i) => (
+          {/* {[...new Array(31)].map((_, i) => (
             <option key={i} value={i + 1}>
               {i + 1}
             </option>
-          ))}
+          ))} */}
+          {renderOptions()}
         </select>
       </div>
       <div className='col-sm-2'>
