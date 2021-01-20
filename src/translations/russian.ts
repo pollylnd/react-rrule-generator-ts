@@ -70,18 +70,18 @@ export default {
     },
     weekly: {
       label: 'Еженедельно',
-      every: 'каждую(ые)',
-      weeks: 'неделю(и)'
+      every: 'каждую',
+      weeks: 'неделю'
     },
     daily: {
       label: 'Ежедневно',
-      every: 'каждый(е)',
-      days: 'день(дня)'
+      every: 'каждый',
+      days: 'день'
     },
     hourly: {
       label: 'Ежечасно',
-      every: 'каждый(е)',
-      hours: 'час(а)'
+      every: 'каждый',
+      hours: 'час'
     }
   },
   end: {
